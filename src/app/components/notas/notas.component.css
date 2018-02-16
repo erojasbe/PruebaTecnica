@@ -1,0 +1,3 @@
+div[contenteditable ="true"]:focus{
+    border: 1px solid blue;
+}

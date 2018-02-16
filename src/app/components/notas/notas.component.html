@@ -1,13 +1,42 @@
-<div class="container margin30">
+<div class="container margin30 animated fadeIn">
   <div style="display: flex; justify-content: space-between; align-items: center">
     <div>
       <h1>
         <i class="fa fa-address-book-o" aria-hidden="true"></i>
         Tareas</h1>
-
     </div>
-
   </div>
   <hr>
+  <section id="tareas">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Completed</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let usuario of usuarios; let j = index" class="animated fadeIn">
+        <tr style="background-color:#2980b9; color:white">
+          <td>Usuario: {{usuario.userId}}</td>
+          <td colspan="3"></td>
+        </tr>
+        <tr *ngFor="let tarea of usuario.nota; let i = index" class="animated fadeIn">
+          <td>{{tarea.id}}</td>
+          <td>
+            <div contenteditable="true">{{tarea.title}}</div>
+          </td>
+          <td style="text-align: center">
+            <i *ngIf="!tarea.completed" class="fa fa-square-o" aria-hidden="true" (click)="CompletarTarea(true, j, i)"></i>
+            <i *ngIf="tarea.completed" class="fa fa-check-square-o" aria-hidden="true" (click)="CompletarTarea(false,j, i)"></i>
+          </td>
+          <td style="text-align: center">
+            <i class="fa fa-trash-o" style="color:#2980b9" aria-hidden="true" (click)="EliminarTarea(j,i)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
+  </section>
 </div>
