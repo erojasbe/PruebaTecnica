@@ -1,5 +1,13 @@
 # TodoApp
 
+Esta aplicacion se realizo con el fin de presentar una prueba de conocimientos en frontend, a continuacion se hace referencia las tecnologias a la cual se hizo este desarrollo y los pasos para ejecutarlo de manera local
+
+## Configurar Aplicacion
+1. Clonar el repositorio de GitHub en su maquina
+2. En su linea de comandos dirigase hasta esa carpeta ejemplo: cd descargas/app
+3. ejegutar el siguiente comando npm install, esto instalara todos los paquetes con referencia a este      proyecto.
+4. ejecutar el comando: ng serve --open, esto abrira una nueva pestaña de su navegador de preferencia      funionado la aplicacion
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
 
 ## Development server
