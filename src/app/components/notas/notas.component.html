@@ -18,11 +18,23 @@
         </tr>
       </thead>
       <tbody *ngFor="let usuario of usuarios; let j = index" class="animated fadeIn">
-        <tr style="background-color:#2980b9; color:white">
-          <td>Usuario: {{usuario.userId}}</td>
-          <td colspan="3"></td>
+        <tr style="background-color:#2980b9; color:white" [attr.nivel]="j">
+          <td style="vertical-align:middle;">
+            <div style="display: flex; align-content: center">
+              <div>
+                <i class="fa fa-plus-square-o" (click)="setUsuario(usuario.userId)" data-toggle="modal" data-target="#addTarea" aria-hidden="true"
+                  style="margin-right: 5px; font-size:18px"></i>
+              </div>
+              <div>
+                Usuario: {{usuario.userId}}
+              </div>
+            </div>
+          </td>
+          <td colspan="3" style="vertical-align:middle;">
+            <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" #buscarNota placeholder="Buscar Tarea (id, title o completed 'true - false ')">
+          </td>
         </tr>
-        <tr *ngFor="let tarea of usuario.nota; let i = index" class="animated fadeIn">
+        <tr *ngFor="let tarea of usuario.nota | filter: buscarNota.value ; let i = index" class="animated fadeIn">
           <td>{{tarea.id}}</td>
           <td>
             <div contenteditable="true">{{tarea.title}}</div>
@@ -37,6 +49,37 @@
         </tr>
       </tbody>
     </table>
-
   </section>
+</div>
+
+
+<div id="addTarea" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar una tarea al usuario: {{idUsuario}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group input-group-sm mb-3">
+          id Tarea: {{idMax}}
+        </div>
+        <div class="input-group input-group-sm mb-3">
+
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Title</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Small" [(ngModel)]="title" aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="AgregarTarea()" data-dismiss="modal">Aceptar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
 </div>

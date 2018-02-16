@@ -12,18 +12,20 @@ import { NotasComponent } from './components/notas/notas.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ToDoService } from './services/to-do.service';
 
+import { FilterPipe } from './pipes/filtro';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     UsuarioComponent,
     NotasComponent,
-    InicioComponent
+    InicioComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     APP_ROUTING,
-    HttpClientModule, 
+    HttpClientModule,
     FormsModule
   ],
   providers: [

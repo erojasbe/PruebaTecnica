@@ -43,4 +43,15 @@ export class ToDoService {
     this.informacion.push({ userId: usuario.userId });
   }
 
+  getIdTarea(): any[] {
+    let idTareas: any[];
+    idTareas = this.informacion.map(x => x.nota.map(y => y.id));
+
+    let result: any[] = [];
+    idTareas.filter(x => x.filter(y => result.push(y)));
+
+    return result;
+
+  }
+
 }
