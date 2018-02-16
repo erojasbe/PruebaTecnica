@@ -1,0 +1,30 @@
+.list-usuarios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.list-usuarios>div {
+  margin: 5px 0px;
+}
+
+.card {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.card:hover {
+  /* width: 250px; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* text-align: center; */
+}
+
+.add-usuario {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  color: #2980b9;
+  cursor: pointer;
+  font-size: 50px;
+}

@@ -1,5 +1,55 @@
-<div class="container">
+<div class="container margin30 animated fadeIn">
+  <div style="display: flex; justify-content: space-between; align-items: center">
+    <div>
+      <h1>
+        <i class="fa fa-users" aria-hidden="true"></i>
+        Usuarios</h1>
 
-  <h1>Usuarios</h1>
+    </div>
+    <div>
+      Total Usuarios: {{usuarios.length}}
+    </div>
+
+  </div>
   <hr>
+
+  <section id="usuarios">
+    <div class="list-usuarios">
+      <div class="card animated slideInUp" style="width: 18rem;" *ngFor="let usuario of usuarios">
+        <img class="card-img-top" src="assets/user-laptop.png" alt="Usuario">
+        <div class="card-body">
+          <div style="display:flex; justify-content: space-between">
+            <p class="card-text">
+              <strong>Usuario</strong> {{usuario.userId}}</p>
+            <p class="card-text">
+              <strong>Tareas</strong> {{usuario.nota == undefined ? 0 :usuario.nota.length }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="add-usuario" title="Agregar Usuario" data-toggle="modal" data-target="#addUsuario">
+  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+</div>
+
+<div id="addUsuario" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>¿Desea crear un nuevo usuario?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="CrearUsuario()" data-dismiss="modal">Aceptar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
 </div>

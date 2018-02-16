@@ -12,7 +12,14 @@ export class UsuarioComponent implements OnInit {
 
   constructor(public _toDoService: ToDoService) {
     this.idUsuario = -1;
-    this.usuarios = this._toDoService.getUsuarios(this.idUsuario);
+    this.usuarios = this._toDoService.informacion;
+  }
+
+  CrearUsuario() {
+    let idMax = this._toDoService.getUsuarios(this.idUsuario);
+    let usu: IUsuario = { userId: Math.max(...idMax) + 1 };
+    this._toDoService.agregarUsuarios(usu);
+    // this.usuarios = this._toDoService.informacion;
   }
 
   ngOnInit() {

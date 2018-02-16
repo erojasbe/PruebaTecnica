@@ -32,11 +32,15 @@ export class ToDoService {
   }
 
   getUsuarios(id: number): any[] {
-    if (id !== -1) {
+    if (id === -1) {
       return this.informacion.map(x => x.userId);
     } else {
       return this.informacion.filter(x => x.userId === id);
     }
+  }
+
+  agregarUsuarios(usuario: IUsuario) {
+    this.informacion.push({ userId: usuario.userId });
   }
 
 }
